@@ -373,9 +373,8 @@ const pokemonNameArray = pokemon.map((a) => a.name); // https://stackoverflow.co
 const pokemonNameArrayLower = pokemonNameArray.map((element) =>
   element.toLowerCase()
 );
-let y = 0;
 game.catchPokemon = function (pokemonName) {
-  let x = pokemonName.toLowerCase();
+  let x = pokemonName.toLowerCase(); // x variable to store user input pokemon name to all lower case
   if (pokemonNameArrayLower.includes(x) === false) {
     console.log(`Pokemon ${pokemonName} does not exist!`);
   } // This segment runs if Pokemon name does not exist in data.js
@@ -405,12 +404,52 @@ game.catchPokemon = function (pokemonName) {
   }
 };
 
-game.catchPokemon("Pikachu");
-game.catchPokemon("zubaT");
-game.catchPokemon("mEw");
-game.catchPokemon("mewTwO");
-game.catchPokemon("raicHu");
-game.catchPokemon("Zapdos");
-game.catchPokemon("Articuno");
-game.catchPokemon("Moltres");
-game.catchPokemon("Dragonite");
+// game.catchPokemon("Pikachu");
+// game.catchPokemon("zubaT");
+// game.catchPokemon("mEw");
+// game.catchPokemon("mewTwO");
+// game.catchPokemon("raicHu");
+// game.catchPokemon("Zapdos");
+// game.catchPokemon("Articuno");
+// game.catchPokemon("Moltres");
+// game.catchPokemon("Dragonite");
+
+/*
+Exercise 21
+Dynamically construct an object with the existing `pokemon` data sorted by the different pokemon types. The object will have this structure:
+
+{
+  grass: [
+    { number: 1, name: 'Bulbasaur', type: 'grass', hp: 45, starter: true },
+    { number: 2, name: 'Ivysaur', type: 'grass', hp: 60, starter: false },
+    { number: 3, name: 'Venusaur', type: 'grass', hp: 80, starter: false },
+    * more grass type Pokemon objects...
+  ],
+  fire: [
+    { number: 4, name: 'Charmander', type: 'fire', hp: 39, starter: true },
+    * more fire type Pokemon objects...
+  ],
+  water: [
+    * water type Pokemon objects...
+  ],
+  * etc... until there is an array for every Pokemon type!
+}
+
+Log the object when it's constructed.
+
+Solve Exercise 21 here:
+*/
+
+const pokemonTypeArray = [...new Set(pokemon.map((a) => a.type))]; // https://www.zipy.ai/blog/how-do-i-get-all-of-the-unique-values-in-a-javascript-array-remove-duplicates
+const sorted = {};
+for (let i = 0; i < pokemonTypeArray.length; i++) {
+  let x = pokemonTypeArray[i]; // assigns x to the name of the pokemon type rather than giving back the index number
+  sorted[x] = [];
+  for (let j = 0; j < pokemonNameArray.length; j++) {
+    if (pokemon[j].type === x) {
+      sorted[x].push(pokemon[j]);
+    }
+  }
+}
+
+console.log(sorted);
