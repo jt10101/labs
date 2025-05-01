@@ -444,10 +444,10 @@ const pokemonTypeArray = [...new Set(pokemon.map((a) => a.type))]; // https://ww
 const sorted = {};
 for (let i = 0; i < pokemonTypeArray.length; i++) {
   let x = pokemonTypeArray[i]; // assigns x to the name of the pokemon type rather than giving back the index number
-  sorted[x] = [];
-  for (let j = 0; j < pokemonNameArray.length; j++) {
-    if (pokemon[j].type === x) {
-      sorted[x].push(pokemon[j]);
+  sorted[pokemonTypeArray[i]] = [];
+  for (let i = 0; i < pokemonNameArray.length; i++) {
+    if (pokemon[i].type === x) {
+      sorted[x].push(pokemon[i]);
     }
   }
 }
