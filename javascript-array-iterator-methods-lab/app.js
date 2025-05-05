@@ -409,13 +409,17 @@ let travelMethodCounts = {};
 
 // Complete the exercise in the space below:
 
-// travelMethods.reduce((a, b) => {
-//   if (travelMethodCounts.some((a) => a)
-//   }
+let travelMethodsSort = {};
 
-// }
+travelMethodsSort = travelMethods
+  .map((a) => {
+    if (a === "car") {
+      return 1;
+    } else return 0;
+  })
+  .reduce((a, b) => a + b);
+console.log(travelMethodsSort);
 
-console.log(travelMethods.some()
 // Check your work:
 console.log("Level Up 2 my result: ", travelMethodCounts);
 console.log("Level Up 2 correct result: ", {
