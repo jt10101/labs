@@ -97,4 +97,18 @@ calculator.addEventListener("click", (event) => {
   }
 });
 
+document.addEventListener("keydown", (event) => {
+  if (Number(event.key)) {
+    let x = event.key;
+    if (x < 1 && storedNumber[currentNum].length < 1) {
+      calcDisplayElement.textContent = "";
+    } else {
+      storedNumber[currentNum].push(x);
+      calcDisplayElement.textContent = storedNumber[currentNum].join("");
+    }
+  }
+});
+// This log is for testing purposes to verify we're getting the correct value
+// You have to click a button to see this log
+
 /*-------------------------------- Functions --------------------------------*/
