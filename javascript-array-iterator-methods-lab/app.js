@@ -408,17 +408,69 @@ Hints:
 let travelMethodCounts = {};
 
 // Complete the exercise in the space below:
+// code lifted from https://generalassembly.instructure.com/courses/798/pages/javascript-array-iterator-methods-2?module_item_id=92215
+travelMethodCounts = travelMethods.reduce(function (a, b) {
+  if (a[b]) {
+    a[b]++;
+  } else {
+    a[b] = 1;
+  }
+  return a;
+}, {});
 
-let travelMethodsSort = {};
+// travelMethodCounts = travelMethods.reduce((a, b) => {
+//   for (let i = 0; i < travelMethods.length; i++) {
+//     let accumulator = 0;
+//     if (travelMethods[a] === travelMethods[b]) {
+//       accumulator++;
+//     }
+//     travelMethodCounts[travelMethods[a]] = travelMethodCounts[accumulator];
+//   }
+// });
+// console.log(travelMethods);
 
-travelMethodsSort = travelMethods
-  .map((a) => {
-    if (a === "car") {
-      return 1;
-    } else return 0;
-  })
-  .reduce((a, b) => a + b);
-console.log(travelMethodsSort);
+// const uniqueTravelMethods = [...new Set(travelMethods)];
+// for (let i = 0; i < uniqueTravelMethods.length; i++) {
+//   let accumulator = 0;
+//   for (let i = 0; i < travelMethods.length; i++) {
+//     if (travelMethods[i] === uniqueTravelMethods[i]) {
+//       accumulator++;
+//     }
+//   }
+//   travelMethodCounts[uniqueTravelMethods[i]] = travelMethodCounts[accumulator];
+// }
+
+// const uniqueTravelMethods = [...new Set(travelMethods)];
+
+// travelMethodCounts = travelMethods
+//   .reduce((x) => {
+//     for (let i = 0; i < uniqueTravelMethods.length; i++) {
+//       let accumulator = 0;
+//     }
+//   })
+// let accumulator = 0;
+
+// for (let i = 0; i < travelMethods.length; i++) {
+//   if (
+//     travelMethods[i] === "car" &&
+//     Object.keys(uniqueTravelMethods.some((a) => a === travelMethods[i]))
+//   ) {
+//     accumulator++;
+//   } else {
+//     travelMethodCounts.car = {};
+//     accumulator++;
+//   }
+// }
+// console.log(accumulator);
+
+// travelMethodsSort = travelMethods
+//   .map((a) => {
+//     if (a === "car") {
+//       return 1;
+//     } else return 0;
+//   })
+//   .reduce((a, b) => a + b);
+// console.log(travelMethodsSort);
 
 // Check your work:
 console.log("Level Up 2 my result: ", travelMethodCounts);
