@@ -28,8 +28,13 @@ calculator.addEventListener("click", (event) => {
   // Example
   if (event.target.classList.contains("number")) {
     // Do something with a number
-    storedNumber[currentNum].push(event.target.innerText);
-    calcDisplayElement.textContent = storedNumber[currentNum].join("");
+    let x = event.target.innerText;
+    if (x < 1 && storedNumber[currentNum].length < 1) {
+      calcDisplayElement.textContent = "";
+    } else {
+      storedNumber[currentNum].push(x);
+      calcDisplayElement.textContent = storedNumber[currentNum].join("");
+    }
   }
 
   // Example
