@@ -116,6 +116,26 @@ document.addEventListener("keydown", (event) => {
     currentNum++;
     calcDisplayElement.textContent = "";
     currentOperator = event.key;
+  } else if (event.key === "Enter") {
+    if (currentOperator === "+") {
+      let result =
+        Number(storedNumber[0].join("")) + Number(storedNumber[1].join(""));
+      calcDisplayElement.textContent = result;
+    } else if (currentOperator === "-") {
+      let result =
+        Number(storedNumber[0].join("")) - Number(storedNumber[1].join(""));
+      calcDisplayElement.textContent = result;
+    } else if (currentOperator === "*") {
+      let result =
+        Number(storedNumber[0].join("")) * Number(storedNumber[1].join(""));
+      calcDisplayElement.textContent = result;
+    } else if (currentOperator === "/") {
+      let result =
+        Number(storedNumber[0].join("")) / Number(storedNumber[1].join(""));
+      calcDisplayElement.textContent = result;
+    }
+    currentNum = 0;
+    storedNumber = [[], []];
   }
 });
 
