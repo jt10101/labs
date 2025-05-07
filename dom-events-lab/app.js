@@ -51,42 +51,42 @@ calculator.addEventListener("click", (event) => {
     // Do something with this operator
     currentNum++;
     calcDisplayElement.textContent = "";
-    currentOperator = "multiply";
+    currentOperator = "*";
   }
 
   if (event.target.innerText === "/") {
     currentNum++;
     calcDisplayElement.textContent = "";
-    currentOperator = "divide";
+    currentOperator = "/";
   }
 
   if (event.target.innerText === "-") {
     currentNum++;
     calcDisplayElement.textContent = "";
-    currentOperator = "minus";
+    currentOperator = "-";
   }
 
   if (event.target.innerText === "+") {
     currentNum++;
     calcDisplayElement.textContent = "";
-    currentOperator = "addition";
+    currentOperator = "+";
   }
 
   if (event.target.innerText === "=") {
     {
-      if (currentOperator === "addition") {
+      if (currentOperator === "+") {
         let result =
           Number(storedNumber[0].join("")) + Number(storedNumber[1].join(""));
         calcDisplayElement.textContent = result;
-      } else if (currentOperator === "minus") {
+      } else if (currentOperator === "-") {
         let result =
           Number(storedNumber[0].join("")) - Number(storedNumber[1].join(""));
         calcDisplayElement.textContent = result;
-      } else if (currentOperator === "multiply") {
+      } else if (currentOperator === "*") {
         let result =
           Number(storedNumber[0].join("")) * Number(storedNumber[1].join(""));
         calcDisplayElement.textContent = result;
-      } else if (currentOperator === "divide") {
+      } else if (currentOperator === "/") {
         let result =
           Number(storedNumber[0].join("")) / Number(storedNumber[1].join(""));
         calcDisplayElement.textContent = result;
@@ -107,8 +107,21 @@ document.addEventListener("keydown", (event) => {
       storedNumber[currentNum].push(x);
       calcDisplayElement.textContent = storedNumber[currentNum].join("");
     }
+  } else if (
+    event.key === "=" ||
+    event.key === "-" ||
+    event.key === "*" ||
+    event.key === "/"
+  ) {
+    currentNum++;
+    calcDisplayElement.textContent = "";
+    currentOperator = event.key;
   }
 });
+
+// document.addEventListener("keydown", (event) => {
+//   console.log(event);
+// });
 //   if (typeof i === "number") {
 //     if (i === 0 && storedNumber[currentNum].length < 1) {
 //       calcDisplayElement.textContent = "";
